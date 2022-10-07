@@ -606,6 +606,11 @@ void Dispatcher::OSC_dispatch( const Parser::OSC_End *act __attribute((unused)),
       Terminal::Framebuffer::title_type notification(
               OSC_string.begin(), OSC_string.end() );
       fb->set_notification( notification );
+  } else if ( OSC_string.size() >= 3 && OSC_string[ 0 ] == L'9' &&
+      OSC_string[ 1 ] == L'9' && OSC_string[ 2 ] == L';') {
+      Terminal::Framebuffer::title_type notification(
+              OSC_string.begin(), OSC_string.end() );
+      fb->set_notification( notification );
   } else if ( OSC_string.size() >= 4 && OSC_string[ 0 ] == L'7' &&
       OSC_string[ 1 ] == L'7' && OSC_string[ 2 ] == L'7' &&
       OSC_string[ 3 ] == L';') {
